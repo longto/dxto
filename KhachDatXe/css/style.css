@@ -1,3 +1,6 @@
 .calc:after {
 	content: " : " attr(data-value);
 }
+.pac-container:after {
+	content:none !important;
+}
