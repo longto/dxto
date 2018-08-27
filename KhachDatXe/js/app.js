@@ -1,22 +1,22 @@
 $('#startTime').bootstrapMaterialDatePicker({ format : 'DD/MM/YYYY HH:mm', minDate : new Date() });
 $('#endTime').bootstrapMaterialDatePicker({ format : 'DD/MM/YYYY HH:mm', minDate : new Date() });
-function initAutocomplete() {
+function initMap() {
+	console.log("initMap");
 	var directionsService = new google.maps.DirectionsService;
-	console.log("initAutocomplete");
 	var placeOptions = {
 		types: ['geocode'],
 		componentRestrictions: {country: "vn"}
 	};
 	var startPlace, endPlace;
 	startPlace = new google.maps.places.Autocomplete(
- 		(document.getElementById('startPlace')),
+ 		document.querySelector('#startPlace'),
         placeOptions
     );
     startPlace.addListener('place_changed', function() {
     	findDirection(startPlace, endPlace);
     });
     endPlace = new google.maps.places.Autocomplete(
- 		(document.getElementById('endPlace')),
+ 		document.querySelector('#endPlace'),
         placeOptions
     );
     endPlace.addListener('place_changed', function() {
@@ -32,12 +32,13 @@ function initAutocomplete() {
 		        totalDistance += legs[i].distance.value;
 		        totalDuration += legs[i].duration.value;
 		    }
-		    totalDistance = (totalDistance / 1000) | 0;
-		    totalDuration = (totalDuration / 60) | 0;
 		    return {
-		        distance: totalDistance + " km",
-		        duration: totalDuration + " min",
+		        distance: totalDistance / 1000 ,
+		        duration: totalDuration / 60,
 		    }
+		}
+		var showEstimate = function() {
+
 		}
 		var callback = function(response, status) {
 			if (status == google.maps.DirectionsStatus.OK) {
@@ -61,6 +62,7 @@ var loadScript = function (src,callback){
 }
 
 loadScript(
-  'https://maps.googleapis.com/maps/api/js?key=AIzaSyDDJCfm026nu_AEN7fdhEWxmNV-OuJvgPg&libraries=geometry,places,drawing',
-  initAutocomplete
+  //'https://maps.googleapis.com/maps/api/js?key=AIzaSyDDJCfm026nu_AEN7fdhEWxmNV-OuJvgPg&libraries=geometry,places,drawing',
+  'https://maps.googleapis.com/maps/api/js?v=3&libraries=visualization,drawing,geometry,places&key=AIzaSyA56R0C2n_rs_oJajhK1s_iGffr3zPjjo8&language=vn',
+  initMap
 );
