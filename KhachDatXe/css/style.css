@@ -24,7 +24,7 @@
 	max-height: none;
 }
 .dtp .dtp-select-hour {
-	fill : #2196F3;
+	fill-opacity: 0;
 }
 .dtp line {
 	stroke : #2196F3;
