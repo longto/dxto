@@ -4,6 +4,57 @@
   <link rel="stylesheet" href="dist/css/app.min.css">
 </head>
 <body>
-  <h1> Hello world </h1>
+  <form class="container mt-3 " onkeypress="return event.keyCode != 13;">
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <input type="text" class="form-control" placeholder="Tên khách hàng">
+      </div>
+      <div class="form-group col-md-6">
+        <input type="tel" class="form-control" placeholder="Số điện thoại">
+      </div>
+      <div class="form-group col-md-6">
+        <input type="text" class="form-control" placeholder="Điểm đón khách" id="startPlace">
+      </div>
+      <div class="form-group col-md-6">
+        <input type="text" class="form-control" placeholder="Điểm trả khách" id="endPlace">
+      </div>
+      <div class="form-group col-md-6">
+        <input type="tel" class="form-control" placeholder="Thời gian đón khách" id="startTime">
+      </div>
+      <div class="form-group col-md-6">
+        <input type="tel" class="form-control" placeholder="Thời gian trả khách" id="endTime">
+      </div>
+      <div class="form-group col-md-6 ">
+        <label class="mr-3">Loại xe</label>
+        <div class="form-check form-check-inline">
+          <label class="form-check-label"> <input class="form-check-input" type="radio" name="car-type" checked> 4 chỗ</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <label class="form-check-label"> <input class="form-check-input" type="radio" name="car-type"> 7 chỗ</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <label class="form-check-label"> <input class="form-check-input" type="radio" name="car-type"> 16 chỗ</label>
+        </div>
+      </div>
+      <div class="form-group col-md-6 ">
+        <label class="mr-3">Chiều di chuyển</label>
+        <div class="form-check form-check-inline">
+          <label class="form-check-label"> <input class="form-check-input" type="radio" name="travel-type"checked> 1 chiều</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <label class="form-check-label"> <input class="form-check-input" type="radio" name="travel-type"> 2 chiều</label>
+        </div>
+      </div>
+      <div class="form-group col-md-6 ">
+        <span class="mr-5 calc" id="distance" data-value="30km"> Quãng đường </span>
+        <span class="mr-5 calc" id="time" data-value="1h30'"> Thời gian </span>
+        <span class="mr-5 calc" id="time" data-value="12$"> Chi phí </span>
+      </div>
+      <div class="form-group col-md-6 ">
+        <button type="submit" class="btn btn-primary">Đặt chuyến</button>
+        <span class="text-info"> Bạn đã đặt xe thành công. Mã chuyến JH456 </span>
+      </div>
+    </div>
+  </form>
   <script src="dist/app.js"></script>
 </body></html>
