@@ -1,5 +1,14 @@
-$('#startTime').bootstrapMaterialDatePicker({ format : 'DD/MM/YYYY HH:mm', minDate : new Date() });
-$('#endTime').bootstrapMaterialDatePicker({ format : 'DD/MM/YYYY HH:mm', minDate : new Date() });
+/*$('#startTime').bootstrapMaterialDatePicker({ format : 'DD/MM/YYYY HH:mm', minDate : new Date() });
+$('#endTime').bootstrapMaterialDatePicker({ format : 'DD/MM/YYYY HH:mm', minDate : new Date() });*/
+/*var clockPickerOptions = {
+	donetext: 'Done',
+	autoclose: true,
+};
+$('.clockpicker').clockpicker(clockPickerOptions);*/
+$(document).ready(function(){
+	$('.datepicker').datepicker();
+	$('.timepicker').timepicker();
+});
 function initMap() {
 	console.log("initMap");
 	var directionsService = new google.maps.DirectionsService;
