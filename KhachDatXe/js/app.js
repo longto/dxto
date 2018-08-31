@@ -5,11 +5,20 @@ $('#endTime').bootstrapMaterialDatePicker({ format : 'DD/MM/YYYY HH:mm', minDate
 	autoclose: true,
 };
 $('.clockpicker').clockpicker(clockPickerOptions);*/
+WebFont.load({
+    google: {
+		families: ['Material Icons']
+    }
+});
 $(document).ready(function(){
-	$('.datepicker').datepicker();
-	$('.timepicker').timepicker();
+	$(document).ready(function(){
+    	$('.tabs').tabs();
+  	});
+	$('#calendar').datepicker();
+	$('#time').timepicker();
 });
 function initMap() {
+	return false;
 	console.log("initMap");
 	var directionsService = new google.maps.DirectionsService;
 	var placeOptions = {

@@ -32,3 +32,20 @@
 .form-inline .form-control {
 	flex : 1 1 auto;	
 }
+
+.hero {
+	background: url('../img/trianglify.svg') center no-repeat;
+	background-size: cover;
+	height: 100vh;
+	position: relative;
+	padding: 20px 0;
+}
+.row {
+	margin-bottom : 0;
+}
+.material-icons {
+	color: transparent;
+}
+.wf-active .material-icons {
+    color: initial;
+}

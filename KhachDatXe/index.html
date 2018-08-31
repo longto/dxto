@@ -5,7 +5,8 @@
   <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css"> -->
 
  <!--  <link rel="stylesheet" href="css/bootstrap.min.css"> -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-datetimepicker/2.7.1/css/bootstrap-material-datetimepicker.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/clockpicker/0.0.7/bootstrap-clockpicker.min.css"> -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
@@ -14,9 +15,55 @@
   
 </head>
 <body>
+  <section class="hero">
+    <article class="container">
+      <div class="row">
+        <ul class="tabs">
+          <li class="tab col s6"><a href="#test1" class="active">Đặt chuyến</a></li>
+          <li class="tab col s6"><a href="#test2">Lịch chuyến</a></li>
+        </ul>
+      </div>
+      <div class="row">
+        <div id="test1" class="white col s12 tab-content">
+          <div class="input-field col s6">
+            <i class="material-icons prefix">account_circle</i>
+            <input id="name" type="text"/>
+            <label for="name">Tên khách</label>
+          </div>
+          <div class="input-field col s6">
+            <i class="material-icons prefix">phone</i>
+            <input id="tel" type="tel"/>
+            <label for="tel">Điện thoại</label>
+          </div>
+          <div class="input-field col s12">
+            <i class="material-icons prefix">person_pin_circle</i>
+            <input id="startPlace" type="text" placeholder=""/>
+            <label for="startPlace">Điểm đón khách</label>
+          </div>
+          <div class="input-field col s12">
+            <i class="material-icons prefix">place</i>
+            <input id="endPlace" type="text" placeholder=""/>
+            <label for="endPlace">Điểm trả khách</label>
+          </div>
+          <div class="input-field col s6">
+            <i class="material-icons prefix">calendar_today</i>
+            <input id="calendar" type="text"/>
+            <label for="calendar">Ngày đón khách</label>
+          </div>
+          <div class="input-field col s6">
+            <i class="material-icons prefix">access_time</i>
+            <input id="time" type="text"/>
+            <label for="time">Giờ đón khách</label>
+          </div>
+        </div>
+        <div id="test2" class="white tab-content">Test 2</div>
+        
+      </div>
+    </article>
+  </section>
   <div class="container mt-3 " onkeypress="return event.keyCode != 13;">
     <div class="form-row col-lg-6">
-      <div class="form-group col-md-6">
+      <!-- <div class="form-group col-md-6">
         <input type="text" class="form-control" placeholder="Tên khách hàng">
       </div>
       <div class="form-group col-md-6">
@@ -27,7 +74,7 @@
       </div>
       <div class="form-group col-md-12">
         <input type="text" class="form-control" placeholder="Điểm trả khách" id="endPlace">
-      </div>
+      </div> -->
       <!-- <div class="form-group col-md-6">
         <input type="date" class="form-control" placeholder="Ngày đón khách" id="startTime">
       </div>
