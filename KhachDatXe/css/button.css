@@ -1,0 +1,6 @@
+button:focus {
+	background-color: #589bcc;
+}
+.btn-floating, .btn-floating:hover {
+	background-color: #589bcc;
+}

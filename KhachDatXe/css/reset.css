@@ -1,0 +1,16 @@
+html * {
+	color: #333; 
+}
+.hero {
+	background: url('../img/trianglify.svg') center no-repeat;
+	background-size: cover;
+	height: 100vh;
+	position: relative;
+	padding: 20px 0;
+}
+.row {
+	margin-bottom : 0;
+}
+p {
+	margin: 0 0 1rem 0;
+}

@@ -1,0 +1,13 @@
+.material-icons {
+  opacity: 0;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+.wf-active .material-icons {
+  opacity: 1;
+}
+.tab-content .material-icons {
+  font-size: 1.5rem;
+}

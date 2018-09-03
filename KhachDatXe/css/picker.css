@@ -1,0 +1,25 @@
+.timepicker-digital-display {
+	background-color: #589bcc;
+}
+.timepicker-canvas line {
+	stroke: #589bcc;
+}
+.timepicker-canvas-bg, .timepicker-canvas-bearing {
+	fill: #589bcc;
+}
+.timepicker-close {
+	color: #589bcc;
+}
+.timepicker-tick.active, .timepicker-tick:hover {
+	background-color: rgba(88,155,204,0.4);	
+}
+
+.datepicker-date-display {
+	background-color: #589bcc;
+}
+.datepicker-table td.is-selected {
+	background-color: #589bcc;
+}
+.datepicker-cancel, .datepicker-clear, .datepicker-today, .datepicker-done {
+	color: #589bcc;
+}

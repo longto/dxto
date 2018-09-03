@@ -1,148 +1,108 @@
 <!DOCTYPE html>
 <html lang="vn" ><head>
-  
-  <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
-  <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css"> -->
-
- <!--  <link rel="stylesheet" href="css/bootstrap.min.css"> -->
-  <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+  <style>
+    .material-icons {
+      opacity: 0;
+    }
+  </style>
   <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
-  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-datetimepicker/2.7.1/css/bootstrap-material-datetimepicker.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/clockpicker/0.0.7/bootstrap-clockpicker.min.css"> -->
+  <script>
+    WebFont.load({google: {families: ['Material Icons']}});
+  </script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
   <link rel="stylesheet" href="css/style.css">
-
-  
 </head>
 <body>
   <section class="hero">
     <article class="container">
       <div class="row">
         <ul class="tabs">
-          <li class="tab col s6"><a href="#test1" class="active">Đặt chuyến</a></li>
-          <li class="tab col s6"><a href="#test2">Lịch chuyến</a></li>
+          <li class="tab col s6"><a href="#booking" class="active">Đặt chuyến</a></li>
+          <li class="tab col s6"><a href="#schedule">Lịch chuyến</a></li>
         </ul>
       </div>
-      <div class="row">
-        <div id="test1" class="white col s12 tab-content">
-          <div class="input-field col s6">
-            <i class="material-icons prefix">account_circle</i>
-            <input id="name" type="text"/>
-            <label for="name">Tên khách</label>
+      <section>
+        <div id="booking" class="col s12 tab-content row">
+          <div class="row">
+            <div class="form-group col s12 m6">
+              <input class="form-group__input" id="name" type="text" required placeholder="Tên khách" />
+              <!-- <label class="form-group__label" for="name">Tên khách</label> -->
+              <i class="form-group__icon material-icons">account_circle</i>
+            </div>
+            <div class="form-group col s12 m6">
+              <input class="form-group__input" id="tel" type="tel" required placeholder="Số điện thoại" />
+              <!-- <label class="form-group__label" for="tel">Số điện thoại</label> -->
+              <i class="form-group__icon material-icons">phone</i>
+            </div>
+            <div class="form-group col s12">
+              <input class="form-group__input" id="startPlace" type="text" required placeholder="Điểm đón khách"/>
+              <!-- <label class="form-group__label" for="startPlace">Điểm đón khách</label> -->
+              <i class="form-group__icon material-icons">person_pin_circle</i>
+            </div>
+            <div class="form-group col s12">
+              <input class="form-group__input" id="endPlace" type="text" required placeholder="Điểm trả khách"/>
+              <!-- <label class="form-group__label" for="endPlace">Điểm trả khách</label> -->
+              <i class="form-group__icon material-icons">place</i>
+            </div>
+            <div class="form-group col s12 m6">
+              <input class="form-group__input" id="date" type="text" required placeholder="Ngày đón khách" />
+              <!-- <label class="form-group__label" for="date" >Ngày đón khách</label> -->
+              <i class="form-group__icon material-icons">calendar_today</i>
+            </div>
+            <div class="form-group col s12 m6">
+              <input class="form-group__input" id="time" type="text" required placeholder="Giờ đón khách" />
+              <!-- <label class="form-group__label" for="time" >Giờ đón khách</label> -->
+              <i class="form-group__icon material-icons">access_time</i>
+            </div>
+            <div class="form-group col s12 m6">
+              <select id="carType" class="form-group__input">
+                <option value="" disabled >Chọn loại xe</option>
+                <option value="4-seat" selected>4 chỗ</option>
+                <option value="7-seat">7 chỗ</option>
+                <option value="16-seat">16 chỗ</option>
+              </select>
+              <!-- <label class="form-group__label" for="carType">Loại xe</label> -->
+              <i class="form-group__icon material-icons">directions_car</i>
+            </div>
+            <div class="form-group col s12 m6">
+              <select id="directionType" class="form-group__input">
+                <option value="" disabled >Chọn chiều đi</option>
+                <option value="1-way" selected>1 chiều</option>
+                <option value="2-way">2 chiều</option>
+              </select>
+              <!-- <label class="form-group__label" for="carType">Loại xe</label> -->
+              <i class="form-group__icon material-icons">repeat</i>
+            </div>
           </div>
-          <div class="input-field col s6">
-            <i class="material-icons prefix">phone</i>
-            <input id="tel" type="tel"/>
-            <label for="tel">Điện thoại</label>
+
+          <div class="row create-ticket center-align">
+            <div class="col s12 m4">
+              <p> Quãng đường : <b id="distance"></b></p>
+            </div>
+            <div class="col s12 m4 center-align">
+              <p> Thời gian : <b id="travelTime"></b></p>
+            </div>
+            <div class="col s12 m4 center-align">
+              <p> Giá cước : <b id="price"></b></p>
+            </div>
+            <div class="col s12 center-align" id="alert">
+            </div>
+            <a id="bookButton" class="btn-floating btn-large pulse"><!-- <i class="material-icons">add</i> -->Đặt</a>
           </div>
-          <div class="input-field col s12">
-            <i class="material-icons prefix">person_pin_circle</i>
-            <input id="startPlace" type="text" placeholder=""/>
-            <label for="startPlace">Điểm đón khách</label>
-          </div>
-          <div class="input-field col s12">
-            <i class="material-icons prefix">place</i>
-            <input id="endPlace" type="text" placeholder=""/>
-            <label for="endPlace">Điểm trả khách</label>
-          </div>
-          <div class="input-field col s6">
-            <i class="material-icons prefix">calendar_today</i>
-            <input id="calendar" type="text"/>
-            <label for="calendar">Ngày đón khách</label>
-          </div>
-          <div class="input-field col s6">
-            <i class="material-icons prefix">access_time</i>
-            <input id="time" type="text"/>
-            <label for="time">Giờ đón khách</label>
-          </div>
+
         </div>
-        <div id="test2" class="white tab-content">Test 2</div>
-        
-      </div>
+        <div id="schedule" class="white tab-content row">
+          Đăng nhập để theo dõi chuyến đi
+        </div>
+      </section>
     </article>
   </section>
-  <div class="container mt-3 " onkeypress="return event.keyCode != 13;">
-    <div class="form-row col-lg-6">
-      <!-- <div class="form-group col-md-6">
-        <input type="text" class="form-control" placeholder="Tên khách hàng">
-      </div>
-      <div class="form-group col-md-6">
-        <input type="tel" class="form-control" placeholder="Số điện thoại">
-      </div>
-      <div class="form-group col-md-12">
-        <input type="text" class="form-control" placeholder="Điểm đón khách" id="startPlace">
-      </div>
-      <div class="form-group col-md-12">
-        <input type="text" class="form-control" placeholder="Điểm trả khách" id="endPlace">
-      </div> -->
-      <!-- <div class="form-group col-md-6">
-        <input type="date" class="form-control" placeholder="Ngày đón khách" id="startTime">
-      </div>
-      <div class="form-group col-md-6">
-        <input type="input" class="form-control" placeholder="Giờ đón khách" id="endTime">
-      </div>
-      <div class="form-group col-md-6">
-        <input type="input" class="form-control" placeholder="Ngày đón khách" id="startTime2">
-      </div> -->
-      <div class="form-group col-md-6">
-        <input type="text" class="datepicker">
-        <input type="text" class="timepicker">
-      </div>
-    </div>
-    <div class="form-row col-lg-6"    >
-      <div class="form-group col-md-6 ">
-        <label class="mr-3">Loại xe</label>
-        <div class="form-check form-check-inline">
-          <label class="form-check-label"> <input class="form-check-input" type="radio" name="car-type" checked> 4 chỗ</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <label class="form-check-label"> <input class="form-check-input" type="radio" name="car-type"> 7 chỗ</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <label class="form-check-label"> <input class="form-check-input" type="radio" name="car-type"> 16 chỗ</label>
-        </div>
-      </div>
-      <div class="form-group col-md-6 ">
-        <label class="mr-3">Chiều di chuyển</label>
-        <div class="form-check form-check-inline">
-          <label class="form-check-label"> <input class="form-check-input" type="radio" name="travel-type"checked> 1 chiều</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <label class="form-check-label"> <input class="form-check-input" type="radio" name="travel-type"> 2 chiều</label>
-        </div>
-      </div>
-      <div class="form-group col-md-6 ">
-        <span class="mr-5 calc" id="distance" data-value="30km"> Quãng đường </span>
-        <span class="mr-5 calc" id="time" data-value="1h30'"> Thời gian </span>
-        <span class="mr-5 calc" id="time" data-value="12$"> Chi phí </span>
-      </div>
-      <div class="form-group col-md-6 ">
-        <button type="submit" class="btn btn-primary">Đặt chuyến</button>
-        <span class="text-info"> Bạn đã đặt xe thành công. Mã chuyến JH456 </span>
-      </div>
-    </div>
-  </form>
   
+  <script src="https://www.gstatic.com/firebasejs/5.4.2/firebase.js"></script>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-  <!--  <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js"></script> -->
-  <!--<script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js"></script> -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
-
-  <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> -->
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-datetimepicker/2.7.1/js/bootstrap-material-datetimepicker.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/clockpicker/0.0.7/bootstrap-clockpicker.min.js"></script> -->
+  <script src="js/utils.js"></script>
+  <script src="js/map.js"></script>
+  <script src="js/time.js"></script>
   <script src="js/app.js"></script>
 </body></html>
-
-<!-- 
-https://cdnjs.com/libraries/bootstrap-material-datetimepicker 
-bootstrap-material-datetimepicker
-http://t00rk.github.io/bootstrap-material-datetimepicker/
-https://weareoutman.github.io/clockpicker/
-
-https://fezvrasta.github.io/bootstrap-material-design/
-https://mdbootstrap.com/getting-started/
--->

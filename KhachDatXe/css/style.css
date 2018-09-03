@@ -1,51 +1,8 @@
-.calc:after {
-	content: " : " attr(data-value);
-}
-.pac-container:after {
-	content:none !important;
-}
-.dtp .material-icons{
-	color : #fff;
-}
-.dtp > .dtp-content > .dtp-date-view > header.dtp-header {
-    background: #03A9F4;
-}
-.dtp div.dtp-date, .dtp div.dtp-time {
-    background: #2196F3;
-}
-
-.dtp table.dtp-picker-days tr > td > a.selected {
-    background: #2196F3;
-}
-.dtp .dtp-btn-ok {
-	margin-left: 15px;
-}
-.dtp > .dtp-content {
-	max-height: none;
-}
-.dtp .dtp-select-hour {
-	fill-opacity: 0;
-}
-.dtp line {
-	stroke : #2196F3;
-}
-.form-inline .form-control {
-	flex : 1 1 auto;	
-}
-
-.hero {
-	background: url('../img/trianglify.svg') center no-repeat;
-	background-size: cover;
-	height: 100vh;
-	position: relative;
-	padding: 20px 0;
-}
-.row {
-	margin-bottom : 0;
-}
-.material-icons {
-	color: transparent;
-}
-.wf-active .material-icons {
-    color: initial;
-}
+@import 'old.css';
+@import 'reset.css';
+@import 'icon.css';
+@import 'tab.css';
+@import 'formgroup.css';
+@import 'ticket.css';
+@import 'button.css';
+@import 'picker.css';

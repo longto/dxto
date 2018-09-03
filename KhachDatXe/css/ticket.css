@@ -1,0 +1,33 @@
+.tab-content .create-ticket {
+	margin-top: 20px;
+	padding-top: 20px;
+	padding-bottom : 10px;
+	border-top : 1px dashed #ccc;
+	position: relative;
+    margin-left: -20px;
+    margin-right: -20px;
+}
+.create-ticket:before {
+	content:'Thông tin';
+	position: absolute;
+	padding: 10px 20px;
+	display: inline-block;
+	top: -22px;
+	left: 50%;
+	transform: translateX(-50%);
+    background-color: #fff;
+    font-weight: 500;
+    font-size: 1rem;	
+    color: #999;
+    text-transform: uppercase;
+}
+.create-ticket .material-icons {
+	color: #fff;
+}
+.create-ticket .btn-floating {
+	position: absolute;
+	left: 50%;
+	top : calc(100% + 10px);
+	transform: translate(-50%,-50%);
+	border : 2px solid #fff;
+}

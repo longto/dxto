@@ -1,86 +1,49 @@
-/*$('#startTime').bootstrapMaterialDatePicker({ format : 'DD/MM/YYYY HH:mm', minDate : new Date() });
-$('#endTime').bootstrapMaterialDatePicker({ format : 'DD/MM/YYYY HH:mm', minDate : new Date() });*/
-/*var clockPickerOptions = {
-	donetext: 'Done',
-	autoclose: true,
-};
-$('.clockpicker').clockpicker(clockPickerOptions);*/
-WebFont.load({
-    google: {
-		families: ['Material Icons']
-    }
-});
+var config = {
+    apiKey: "AIzaSyCdMOOC4yyY9-KXipeMvyAk5GVFvNmto10",
+    authDomain: "datxetaxi-ac27b.firebaseapp.com",
+    databaseURL: "https://datxetaxi-ac27b.firebaseio.com",
+    projectId: "datxetaxi-ac27b",
+    storageBucket: "datxetaxi-ac27b.appspot.com",
+    messagingSenderId: "343651525049"
+  };
+firebase.initializeApp(config);
+var storage = firebase.storage();
+var database = firebase.database();
+var refTrips = database.ref('trips');
+
+var appData = {
+	name: undefined,
+	tel: undefined,
+	startPlace: undefined,
+	endPlace: undefined,
+	date: now,
+	time: currentTime,
+	carType: '4-seat',
+	directionType: '1-way',
+	distance: 0,
+	travelTime: 0,
+	price: 0,
+}
 $(document).ready(function(){
 	$(document).ready(function(){
-    	$('.tabs').tabs();
+    	$('.tabs').tabs({
+    	});
   	});
-	$('#calendar').datepicker();
-	$('#time').timepicker();
 });
-function initMap() {
-	return false;
-	console.log("initMap");
-	var directionsService = new google.maps.DirectionsService;
-	var placeOptions = {
-		types: ['geocode'],
-		componentRestrictions: {country: "vn"}
-	};
-	var startPlace, endPlace;
-	startPlace = new google.maps.places.Autocomplete(
- 		document.querySelector('#startPlace'),
-        placeOptions
-    );
-    startPlace.addListener('place_changed', function() {
-    	findDirection(startPlace, endPlace);
-    });
-    endPlace = new google.maps.places.Autocomplete(
- 		document.querySelector('#endPlace'),
-        placeOptions
-    );
-    endPlace.addListener('place_changed', function() {
-    	findDirection(startPlace, endPlace);
-    });
-    function findDirection(startPlace, endPlace) {
-		if (!startPlace || !startPlace.getPlace() || !endPlace || !endPlace.getPlace()) return null;
-		var calcRouteTime = function(response) {
-		    var totalDistance = 0;
-		    var totalDuration = 0;
-		    var legs = response.routes[0].legs;
-		    for (var i = 0; i < legs.length; ++i) {
-		        totalDistance += legs[i].distance.value;
-		        totalDuration += legs[i].duration.value;
-		    }
-		    return {
-		        distance: totalDistance / 1000 ,
-		        duration: totalDuration / 60,
-		    }
-		}
-		var showEstimate = function() {
-
-		}
-		var callback = function(response, status) {
-			if (status == google.maps.DirectionsStatus.OK) {
-				console.log(calcRouteTime(response));
-			}
-		}
-		directionsService.route({
-	        origin: startPlace.getPlace().geometry.location,
-	        destination: endPlace.getPlace().geometry.location,
-	        travelMode: google.maps.TravelMode.DRIVING
-	    }, callback);
+["name","tel","carType","directionType"].forEach(function(key) {
+	document.querySelector("#"+key).addEventListener('change', function(e) {
+		appData[key] = e.target.value;
+		calculatePostage();
+	});
+})
+document.querySelector("#bookButton").addEventListener('click', function(e) {
+	if (validation()) {
+		console.log(appData);
+		let newTrip = Object.assign({}, appData, {
+			date: appData.date.toString(),
+			time: pad(currentTime.hour)+":"+pad(currentTime.minute),
+		});
+		console.log(newTrip);
 	}
-}
-
-var loadScript = function (src,callback){
-  var script = document.createElement("script");
-  script.type = "text/javascript";
-  if(callback) script.onload=callback;
-  document.querySelector("head").appendChild(script);
-  script.src = src;
-}
-
-loadScript(
-  //'https://maps.googleapis.com/maps/api/js?key=AIzaSyDDJCfm026nu_AEN7fdhEWxmNV-OuJvgPg&libraries=geometry,places,drawing',
-  'https://maps.googleapis.com/maps/api/js?v=3&libraries=visualization,drawing,geometry,places&key=AIzaSyA56R0C2n_rs_oJajhK1s_iGffr3zPjjo8&language=vn',
-  initMap
-);
+});
+//console.log(convertTravelTime(3660));

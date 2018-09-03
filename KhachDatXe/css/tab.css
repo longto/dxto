@@ -1,0 +1,38 @@
+.tab-content {
+	padding: 1rem 1.5rem;
+	background-color: #fff;
+	box-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+}
+.tab-content:not(:first-of-type) {
+	display: none;
+}
+.tabs {
+	background-color: #eee;
+}
+.tab {
+	background-color: transparent;
+}
+.tabs .tab a {
+    color: #aaa;
+    font-weight: 500;
+    border-bottom : 1px solid #ccc;
+    border-left : 1px solid #ccc;
+    /*box-shadow: inset 0px -0.5px 1px 0px rgba(0,0,0,0.1);*/
+}
+.tabs .tab:first-of-type a {
+	border-left: none;
+}
+.tabs .tab a:hover, .tabs .tab a.active {
+	color: #666;
+	background-color: #fff;
+}
+.tabs .tab a.active {
+	border-bottom-color: transparent;
+	box-shadow: none;
+}
+.tabs .tab a:focus, .tabs .tab a:focus.active {
+    background-color: #fff;
+}
+.tabs .indicator {
+	background-color: transparent;
+}
