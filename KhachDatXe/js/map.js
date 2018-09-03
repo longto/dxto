@@ -11,7 +11,12 @@ function initMap() {
         placeOptions
     );
     startPlace.addListener('place_changed', function() {
-    	appData.startPlace = $("#startPlace").val();
+    	appData.startPlace = {
+    		name: document.querySelector("#startPlace").value,
+    		lat: startPlace.getPlace().geometry.location.lat(),
+    		lng: startPlace.getPlace().geometry.location.lng(),
+    	}
+    	console.log(appData.startPlace);
     	findDirection(startPlace, endPlace);
     });
     endPlace = new google.maps.places.Autocomplete(
@@ -19,7 +24,11 @@ function initMap() {
         placeOptions
     );
     endPlace.addListener('place_changed', function() {
-    	appData.endPlace = $("#endPlace").val();
+    	appData.endPlace = {
+    		name: document.querySelector("#endPlace").value,
+    		lat: startPlace.getPlace().geometry.location.lat(),
+    		lng: startPlace.getPlace().geometry.location.lng(),
+    	}
     	findDirection(startPlace, endPlace);
     });
     function findDirection(startPlace, endPlace) {
