@@ -42,8 +42,10 @@ document.querySelector("#bookButton").addEventListener('click', function(e) {
 		let newTrip = Object.assign({}, appData, {
 			date: appData.date.toString(),
 			time: pad(currentTime.hour)+":"+pad(currentTime.minute),
+			createTime: firebase.database.ServerValue.TIMESTAMP
 		});
-		console.log(newTrip);
+		refTrips.push(newTrip);
 	}
 });
 //console.log(convertTravelTime(3660));
+console.log(validateMobileNumber('+84 165 506 0650'));
