@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html lang="vn" ><head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <style>
     .material-icons {
       opacity: 0;
@@ -17,8 +20,8 @@
     <article class="container">
       <div class="row">
         <ul class="tabs">
-          <li class="tab col s6"><a href="#booking" class="active">Đặt chuyến</a></li>
-          <li class="tab col s6"><a href="#schedule">Lịch chuyến</a></li>
+          <li class="tab col s6"><a href="#booking" >Đặt chuyến</a></li>
+          <li class="tab col s6"><a href="#schedule" class="active">Lịch chuyến</a></li>
         </ul>
       </div>
       <section>
@@ -92,14 +95,65 @@
 
         </div>
         <div id="schedule" class="white tab-content row">
-          Đăng nhập để theo dõi chuyến đi
+          <article class="trip">
+            <div class="row trip__header">
+
+              <span class="trip__tag">
+                <i class="material-icons">directions_car</i> 4 chỗ 
+              </span>
+              <span class="trip__tag">
+                <i class="material-icons">repeat</i> 2 chiều 
+              </span>
+              <span class="trip__tag">
+                <i class="material-icons">access_time</i> 20:11 
+              </span>
+            </div>
+            <ul class="row trip__body">
+              <li class="row toggle" data-target=".trip__more-info">
+                <div class="col s12">
+                  <img src="http://goo.gl/9iitr6" class="trip__avatar--small"/>
+                  <b>Kiều Trinh : </b> An Lạc, Bình Tân, Ho Chi Minh City, Vietnam ---
+                  <b>Đến : </b>Binh Duong, Vietnam
+                </div>
+              </li>              
+              <li class="row trip__more-info">
+                <div class="col trip__left">
+                  <div class="trip__avatar" style="background-image: url('http://goo.gl/9iitr6')">
+                  </div>
+                  <div class="center-align"><b>Kiều Trinh</b></div>
+                  <div class="center-align">01657654321</div>
+                </div>
+                <div class="col trip__right"> 
+                  <span class="trip__tag">
+                    <i class="material-icons">calendar_today</i> 20-11-2018
+                  </span>
+                  <span class="trip__tag" id="distance"> 85.4km </span>
+                  <span class="trip__tag" id="price"> 730,000VNĐ </span>
+                  <div id="comment"> Cần xe cốp rộng nhé, mình mang nhiều đồ đạc </div>
+                </div>
+              </li>
+            </ul>
+            <div class="row trip__footer show-on-small">
+
+              <a href="tel:555-555-5555" class="trip__button">
+                <i class="material-icons">phone</i>
+                Gọi
+              </a>
+              <div class="trip__button">
+                <i class="material-icons">done</i>
+                Nhận
+              </div>              
+            </div>
+          </article>
+
         </div>
       </section>
     </article>
   </section>
   
   <script src="https://www.gstatic.com/firebasejs/5.4.2/firebase.js"></script>
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
   <script src="js/utils.js"></script>
   <script src="js/validation.js"></script>

@@ -1,8 +1,17 @@
 $(document).ready(function(){
 	$(document).ready(function(){
-    	$('.tabs').tabs({
-    	});
+    	$('.tabs').tabs({});
+    	$('.collapsible').collapsible({});
   	});
+  	const toggle = function(ele) {
+  		let target = document.querySelector(ele.dataset.target);
+  		if(target) $(target).slideToggle();
+  	}
+  	document.querySelectorAll('.toggle').forEach(function(ele) {
+  		ele.addEventListener('click', function(event) {
+  			toggle(event.target);
+  		})
+  	})
 });
 
 var appData = {

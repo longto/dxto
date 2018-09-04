@@ -1,5 +1,6 @@
 html * {
 	color: #333; 
+	box-sizing: border-box;
 }
 .hero {
 	background: url('../img/trianglify.svg') center no-repeat;
