@@ -5,7 +5,7 @@
 	align-items: center;
 }
 .form-group__icon {
-    width: 4rem;
+    width: 3rem;
     font-size: 2rem;
     transition: color .3s;
     order: -1;
