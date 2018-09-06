@@ -9,7 +9,7 @@
 	padding: 1rem 0.5rem;
 }
 .tab-content:not(:first-of-type) {
-	display: none;
+	// display: none;
 }
 .tabs {
 	background-color: #eee;
