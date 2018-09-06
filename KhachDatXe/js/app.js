@@ -75,4 +75,15 @@ function initApp() {
         let messages = snapshot.val();
         console.log(messages);
     });
+
+    refTrips.once("value", function(snapshot) {
+        let messages = snapshot.val();
+        console.log(messages);
+    });
+
+    refTrips.on("value", function(snapshot) {
+        let messages = snapshot.val();
+        console.log(messages);
+        document.querySelector("#debug-info").innerHTML = JSON.stringify(messages;
+    });
 }
